@@ -4,7 +4,7 @@ int Fila::numFilas = 0;
 int Fila::totalElementos = 0;
 
 Fila::Fila(int tam){
-        if (tam <= 0) {
+        if (tam < 0) {
         throw std::invalid_argument("Tamanho da fila deve ser positivo!");
         }
         tamanho = tam;
