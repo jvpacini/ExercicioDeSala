@@ -32,6 +32,8 @@ public:
     int getNumFilas() const;
 
     int getTotalElementos() const;
+
+    void imprimir() const;
 };
 
 #endif

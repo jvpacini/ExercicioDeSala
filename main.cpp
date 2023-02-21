@@ -17,7 +17,10 @@ int main(){
 
     f3.enfileirar("tamanho excedido");
 
-    f4.enfileirar("Teste");
+    f4.enfileirar("Teste 1");
+    f4.enfileirar("Teste 2");
+    f4.enfileirar("Teste 3");
+    f4.enfileirar("Teste 4");
 
     std::cout << "Informacoes sobre a fila 1, quantidade de elementos: " << f1.getTamanhoAtual()
     <<" capacidade da fila: " << f1.getTamanhoMax() << std::endl;
@@ -49,8 +52,7 @@ int main(){
     std::cout << "Criada fila 5 de inteiros, com " << f5.getTamanhoAtual() << " elementos e tamanho: " << f5.getTamanhoMax()
     << " contendo os elementos: " << std::endl;
 
-    for (int i = 1; i<=5; i++){
-        std::cout << f5.desenfileirar() << std::endl;
-    }
+    f5.imprimir();
+
     return 0;
 }

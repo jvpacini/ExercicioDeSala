@@ -18,6 +18,7 @@ template <typename T>
 Fila<T>::~Fila(){
     delete[] dados;
     numFilas--;
+    totalElementos -= getTamanhoAtual();
 }
 
 template <typename T>
@@ -68,6 +69,17 @@ template <typename T>
 int Fila<T>::getTotalElementos() const{
     return totalElementos;
 };
+
+template <typename T>
+
+void Fila<T>::imprimir() const{
+    std::cout << "Elementos da fila: ";
+    for (int i = inicio; i < fim; i++){
+        std::cout << dados[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 
 template <typename T>
 int Fila<T>::numFilas = 0;
