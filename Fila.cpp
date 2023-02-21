@@ -1,57 +1,76 @@
 #include "Fila.h"
 
-int Fila::numFilas = 0;
-int Fila::totalElementos = 0;
+template <typename T>
 
-Fila::Fila(int tam){
-        if (tam < 0) {
+Fila<T>::Fila(int tam){
+    if (tam < 0){
         throw std::invalid_argument("Tamanho da fila deve ser positivo!");
-        }
-        tamanho = tam;
-        inicio = 0;
-        fim = 0;
-        dados = new string[tamanho];
-        numFilas++;
     }
+    tamanho = tam;
+    inicio = 0;
+    fim = 0;
+    dados = new T[tamanho];
+    numFilas++;
+}
 
-Fila::~Fila() {
-        delete[] dados;
-        numFilas--;
+template <typename T>
+
+Fila<T>::~Fila(){
+    delete[] dados;
+    numFilas--;
+}
+
+template <typename T>
+
+void Fila<T>::enfileirar(T valor){
+    if (fim == tamanho){
+        std::cout << "Fila cheia!" << std::endl;
+        return;
     }
+    dados[fim] = valor;
+    fim++;
+    totalElementos++;
+}
 
-void Fila::enfileirar(string valor) {
-        if (fim == tamanho) {
-            std::cout << "Fila cheia!" << std::endl;
-            return;
-        }
-        dados[fim] = valor;
-        fim++;
-        totalElementos++;
+template <typename T>
+
+T Fila<T>::desenfileirar(){
+    if (inicio == fim){
+        std::cout << "Fila vazia!" << std::endl;
+        return T();
     }
+    T valor = dados[inicio];
+    inicio++;
+    totalElementos--;
+    return valor;
+};
 
-string Fila::desenfileirar() {
-        if (inicio == fim) {
-            std::cout << "Fila vazia!" << std::endl;
-            return "";
-        }
-        string valor = dados[inicio];
-        inicio++;
-        totalElementos--;
-        return valor;
-    };
+template <typename T>
 
-int Fila::getTamanhoAtual() {
-        return fim - inicio;
-    };
+int Fila<T>::getTamanhoAtual() const{
+    return fim - inicio;
+};
 
-int Fila::getTamanhoMax() {
+template <typename T>
+
+int Fila<T>::getTamanhoMax() const{
     return tamanho;
-    };
+};
 
-int Fila::getNumFilas() {
+template <typename T>
+
+int Fila<T>::getNumFilas() const{
     return numFilas;
-    };
+};
 
-int Fila::getTotalElementos() {
+template <typename T>
+
+int Fila<T>::getTotalElementos() const{
     return totalElementos;
 };
+
+template <typename T>
+int Fila<T>::numFilas = 0;
+
+template <typename T>
+int Fila<T>::totalElementos = 0;

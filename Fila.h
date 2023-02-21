@@ -5,13 +5,14 @@
 #include <string>
 
 using namespace std;
+template <typename T>
 
 class Fila {
 private:
     int tamanho;
     int inicio;
     int fim;
-    string* dados;
+    T* dados;
 
     static int numFilas;
     static int totalElementos;
@@ -20,17 +21,17 @@ public:
     
     ~Fila();
     
-    void enfileirar(string valor);
+    void enfileirar(T valor);
     
-    string desenfileirar();
+    T desenfileirar();
 
-    int getTamanhoAtual();
+    int getTamanhoAtual() const;
 
-    int getTamanhoMax();
+    int getTamanhoMax() const;
 
-    int getNumFilas();
+    int getNumFilas() const;
 
-    int getTotalElementos();
+    int getTotalElementos() const;
 };
 
 #endif

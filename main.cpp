@@ -3,10 +3,10 @@
 
 int main(){
 
-    Fila f1(2);
-    Fila f2(3);
-    Fila f3(0);
-    Fila f4(4);
+    Fila<string> f1(2);
+    Fila<string> f2(3);
+    Fila<string> f3(0);
+    Fila<string> f4(4);
 
     f1.enfileirar("um");
     f1.enfileirar("dois");
@@ -17,7 +17,7 @@ int main(){
 
     f3.enfileirar("tamanho excedido");
 
-    f4.enfileirar("Teste da verificacao para valores negativos");
+    f4.enfileirar("Teste");
 
     std::cout << "Informacoes sobre a fila 1, quantidade de elementos: " << f1.getTamanhoAtual()
     <<" capacidade da fila: " << f1.getTamanhoMax() << std::endl;
@@ -38,5 +38,19 @@ int main(){
     std::cout << "Numero total de filas: " << f1.getNumFilas() << " numero total de elementos em todas as filas: "
     << f1.getTotalElementos() << std::endl;
 
+    std::cout << "Testando fila de inteiros" << std::endl;
+
+    Fila<double> f5(5);
+
+    for (int i = 1; i<=5; i++){
+        f5.enfileirar(i);
+    }
+
+    std::cout << "Criada fila 5 de inteiros, com " << f5.getTamanhoAtual() << " elementos e tamanho: " << f5.getTamanhoMax()
+    << " contendo os elementos: " << std::endl;
+
+    for (int i = 1; i<=5; i++){
+        std::cout << f5.desenfileirar() << std::endl;
+    }
     return 0;
 }
