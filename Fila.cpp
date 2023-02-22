@@ -35,6 +35,19 @@ void Fila<T>::enfileirar(T valor){
 
 template <typename T>
 
+Fila<T>& Fila<T>::operator+(const T &dado) {
+    if (fim == tamanho) {
+        std::cout << "Fila cheia!" << std::endl;
+        return *this;
+    }
+    dados[fim] = dado;
+    fim++;
+    totalElementos++;
+    return *this;
+}
+
+template <typename T>
+
 T Fila<T>::desenfileirar(){
     if (inicio == fim){
         std::cout << "Fila vazia!" << std::endl;
@@ -80,6 +93,17 @@ void Fila<T>::imprimir() const{
     std::cout << std::endl;
 }
 
+template<typename T>
+
+std::ostream &operator<<(std::ostream &out, const Fila<T> &fila) {
+    out << "[ ";
+    for (int i = fila.inicio; i < ((fila.fim)-1); i++) {
+        out << fila.dados[i] << ", ";
+    }
+    out << fila.dados[((fila.fim)-1)];
+    out << " ]";
+    return out;
+}
 
 template <typename T>
 int Fila<T>::numFilas = 0;

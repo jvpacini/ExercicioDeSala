@@ -22,6 +22,8 @@ public:
     ~Fila();
     
     void enfileirar(T valor);
+
+    Fila<T>& operator+(const T& dado);
     
     T desenfileirar();
 
@@ -34,6 +36,9 @@ public:
     int getTotalElementos() const;
 
     void imprimir() const;
+
+    template<typename U>
+    friend std::ostream &operator<<(std::ostream &out, const Fila<U> &f);
 };
 
 #endif

@@ -43,7 +43,7 @@ int main(){
 
     std::cout << "Testando fila de inteiros" << std::endl;
 
-    Fila<double> f5(5);
+    Fila<int> f5(6);
 
     for (int i = 1; i<=5; i++){
         f5.enfileirar(i);
@@ -53,6 +53,18 @@ int main(){
     << " contendo os elementos: " << std::endl;
 
     f5.imprimir();
+
+    std::cout << "Adicionando numero 6 com o operador + na fila f5" << std::endl;
+
+    f5+6;
+
+    f5.imprimir();
+
+    std::cout << "Adicionando string 'teste' a fila f2" << std::endl;
+
+    f2+"teste";
+
+    std::cout << "Testando operador de saida sobrecarregado, fila f5: " << f5 << std::endl;
 
     return 0;
 }
