@@ -66,5 +66,11 @@ int main(){
 
     std::cout << "Testando operador de saida sobrecarregado, fila f5: " << f5 << std::endl;
 
+    std::cout << "Testando operador de entrada sobrecarregado na fila f2, adicione uma string qualquer" << std::endl;
+
+    std::cin >> f2;
+
+    std::cout << "Novo conteudo de f2: " << f2;
+
     return 0;
 }

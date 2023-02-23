@@ -93,6 +93,22 @@ void Fila<T>::imprimir() const{
     std::cout << std::endl;
 }
 
+template <typename T>
+
+bool Fila<T>::operator==(const Fila<T> &outra) const{
+    if (tamanho != outra.tamanho) {
+        return false;
+    }
+    for (int i = 0; i < tamanho; i++) {
+        if (dados[i] != outra.dados[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
 template<typename T>
 
 std::ostream &operator<<(std::ostream &out, const Fila<T> &fila) {
@@ -103,6 +119,15 @@ std::ostream &operator<<(std::ostream &out, const Fila<T> &fila) {
     out << fila.dados[((fila.fim)-1)];
     out << " ]";
     return out;
+}
+
+template <typename T>
+
+std::istream &operator>>(std::istream &in, Fila<T> &fila) {
+    T dado;
+    in >> dado;
+    fila.enfileirar(dado);
+    return in;
 }
 
 template <typename T>

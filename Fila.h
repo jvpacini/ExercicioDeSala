@@ -37,8 +37,13 @@ public:
 
     void imprimir() const;
 
+    bool operator==(const Fila<T> &outra) const;
+
     template<typename U>
     friend std::ostream &operator<<(std::ostream &out, const Fila<U> &f);
+
+    template <typename U>
+    friend std::istream &operator>>(std::istream& in, Fila<U> &fila);
 };
 
 #endif
